@@ -14,6 +14,9 @@ Plain Java + Swing. No Maven, no external libraries — everything runs from the
 | `HoldManager.java` | Live inventory + all hold transitions. `placeHold()` is synchronized: two workers racing for the last bed → exactly one wins |
 | `ShelterApp.java` | Swing UI with 3 tabs — Worker App, Shelter Console, City Admin — all reading/writing the same inventory |
 
+## New front end — Grail-inspired UI (Nov 16, 2026)
+A second window, `TuckedInGrailApp.java`, rebuilds the presentation layer in the design language of grail-app.com — colour-block chapters, rounded cards, pill buttons/tabs, stat tiles, big serif display type — using **pure Java Swing/Java2D, zero JavaScript**, and the *same* engine classes (`EligibilityEngine`, `HoldManager`, `SampleData`). Supporting components: `Theme`, `RoundedPanel`, `PillButton`, `ChapterHeader`, `StatTile`, `BedCardPanel`. The original `ShelterApp.java` is untouched and remains the stable fallback. Run `TuckedInGrailApp.java` in NetBeans to see it: Chapter 00 Tonight (hero) → 01 Worker (profile tabs + bed cards) → 02 Shelter Console → 03 City Admin (stat tiles + tonight board). Design study: `files/Grail_Frontend_Evaluation_and_Java_Plan.md` in the project docs.
+
 ## Run it in NetBeans
 1. File → New Project → Java Application. Name it `ShelterApp`, **uncheck** "Create Main Class" if asked (we have one).
 2. Copy the `shelterapp` folder from `src/` into your project's `src/` folder (or: right-click Source Packages → Add Existing Folder... and pick `src/shelterapp`'s parent after copying).
